@@ -25,13 +25,14 @@ public class Torneo {
     private final byte limiteEdad;
     private final int valorInscripcion;
     private final TipoTorneo tipoTorneo;
+    private final TorneoGenero torneoGenero;
     private final Collection<Participante> participantes;
     private final CaracterTorneo caracter;
 
     public Torneo(String nombre, LocalDate fechaInicio,
             LocalDate fechaInicioInscripciones,
             LocalDate fechaCierreInscripciones, byte numeroParticipantes,
-            byte limiteEdad, int valorInscripcion,TipoTorneo tipoTorneo,CaracterTorneo caracter) {
+            byte limiteEdad, int valorInscripcion,TipoTorneo tipoTorneo, TorneoGenero torneoGenero, CaracterTorneo caracter) {
         
         ASSERTION.assertion( nombre != null , "El nombre es requerido");
         
@@ -51,6 +52,7 @@ public class Torneo {
         this.limiteEdad = limiteEdad;
         this.valorInscripcion = valorInscripcion;
         this.tipoTorneo = tipoTorneo;
+        this.torneoGenero = torneoGenero;
         this.participantes = new LinkedList<>();
         this.caracter = Objects.requireNonNull(caracter,"El carácter del torneo es requerido");
     }
@@ -85,6 +87,10 @@ public class Torneo {
 
     public TipoTorneo getTipoTorneo() {
         return tipoTorneo;
+    }
+
+    public TorneoGenero gTorneoGenero(){
+        return torneoGenero;
     }
 
     public CaracterTorneo getCaracter() {
